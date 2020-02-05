@@ -284,6 +284,6 @@ public class TresEnRaya {
         if(partida.tableroLleno() && !partida.comprobarVictoria()){
             System.out.println("Empate");
         }
-    }
+    } 
 
 }
