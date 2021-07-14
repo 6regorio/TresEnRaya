@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package TresEnRaya;
 
 import java.util.Scanner;
@@ -12,7 +7,7 @@ import java.util.Scanner;
  * @author jazzviji
  */
 public class TresEnRaya {
-    private char [][] tablero;
+    private final char [][] tablero;
     
     TresEnRaya(){
         tablero = new char[3][3];
@@ -44,10 +39,7 @@ public class TresEnRaya {
         if(comprobarVertical()){
             return true;
         }
-        if(comprobarDiagonal()){
-            return true;
-        }
-        return false;
+        return comprobarDiagonal();
     }
     
     public boolean comprobarVictoria(char ficha){
@@ -57,10 +49,7 @@ public class TresEnRaya {
         if(comprobarVertical(ficha)){
             return true;
         }
-        if(comprobarDiagonal(ficha)){
-            return true;
-        }
-        return false;
+        return comprobarDiagonal(ficha);
     }
     
     public void mostrar(){
@@ -94,11 +83,7 @@ public class TresEnRaya {
 
     private boolean posValida(int f, int c) {
         if(f>=0 && f<tablero.length && c>=0 && c<tablero[0].length){
-            if(charValido(tablero[f][c])){
-                return false;
-            }else{
-                return true;
-            }
+            return !charValido(tablero[f][c]);
         }else{
             return false;
         }
@@ -178,10 +163,7 @@ public class TresEnRaya {
                 }
             }
         }
-        if(cont1==3 || cont2==3){
-            return true;
-        }
-        return false;
+        return cont1==3 || cont2==3;
     }
 
     private boolean charValido(char ficha) {
@@ -240,10 +222,7 @@ public class TresEnRaya {
                 }
             }
         }
-        if(cont==3){
-            return true;
-        }
-        return false;
+        return cont==3;
     }
     
     
